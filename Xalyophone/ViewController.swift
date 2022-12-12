@@ -9,8 +9,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func keyPressed(_ sender: UIButton) {
-        var nameButton = (sender.currentTitle)
+        let nameButton = (sender.currentTitle)
         playSound(buttonTitle: nameButton!)
+        sender.alpha = 0.55
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            sender.alpha = 1.0
+        }
     }
     
     func playSound(buttonTitle: String) {
